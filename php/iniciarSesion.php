@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $_SESSION["Rol"] = $row["rol"];
 
-        header("Location: ../main.php");
+        header("Location: ../index.php");
 
     } else {
         header("Location: ../login.php");
