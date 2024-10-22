@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2024 a las 13:58:54
+-- Tiempo de generación: 22-10-2024 a las 14:03:53
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -32,18 +32,19 @@ CREATE TABLE `empleado` (
   `nombre` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `idRol` int(11) NOT NULL
+  `idRol` int(11) NOT NULL,
+  `imagen` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id`, `nombre`, `email`, `password`, `idRol`) VALUES
-(1, 'Anselmo', 'anselmo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1),
-(2, 'Hortensia', 'hortensia@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1),
-(3, 'Facundo', 'facundo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 2),
-(4, 'Gertrudis', 'gertrudis@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 2);
+INSERT INTO `empleado` (`id`, `nombre`, `email`, `password`, `idRol`, `imagen`) VALUES
+(1, 'Anselmo', 'anselmo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1, 'images/pfp/anselmo.png'),
+(2, 'Hortensia', 'hortensia@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1, 'images/pfp/hortensia.png'),
+(3, 'Facundo', 'facundo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 2, 'images/pfp/facundo.png'),
+(4, 'Gertrudis', 'gertrudis@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 2, 'images/pfp/gertrudis.png');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,9 @@ INSERT INTO `productos` (`id`, `nombre`, `idTipo`, `imagen`) VALUES
 (5, 'napolitanas', 2, 'images/imgProds/napolitanas.jpg'),
 (6, 'ensaimadas', 2, 'images/imgProds/ensaimadas.jpg'),
 (7, 'nata', 3, 'images/imgProds/tartaNata.jpg'),
-(8, 'tiramisú', 3, 'images/imgProds/tiramisu.jpg');
+(8, 'tiramisú', 3, 'images/imgProds/tiramisu.jpg'),
+(9, 'empanadilla', 1, 'images/imgProds/empanadillas.jpg'),
+(10, 'empanadilla', 1, 'images/imgProds/empanadillas.jpg');
 
 -- --------------------------------------------------------
 
@@ -103,6 +106,15 @@ CREATE TABLE `stock` (
   `cantidad` int(50) NOT NULL,
   `coste` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `stock`
+--
+
+INSERT INTO `stock` (`id`, `idProd`, `cantidad`, `coste`) VALUES
+(3, 5, 2, 7),
+(12, 1, 1, 1),
+(15, 2, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -176,7 +188,7 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -188,7 +200,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos`
