@@ -26,7 +26,7 @@ $sqlPrueba = "SELECT t.id as idTipo, t.nombre AS nomTipo, p.id AS idProd, p.nomb
 
 $resultPrueba  = $conn->query($sqlPrueba);
 
-$selectPrueba = "<select name='tipo' id='tipo' class='form-select'>";
+$selectPrueba = "<select name='producto' id='producto' class='form-select'>";
 
 if($resultPrueba->num_rows > 0){
     while($row = $resultPrueba->fetch_assoc()){

@@ -22,7 +22,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $row = $resultCoste->fetch_assoc();
         $costeQueLlevamos = $row["coste"];
         $costeTotal = $coste + $costeQueLlevamos;
-        if($costeTotal > 1000){
+        if($costeTotal > 650){
+            $todoCorrecto = true;
+            echo "<script>alert('Anselmo que ya estamos superando el 65% del presupuestoooooo!!!!');</script>";
+        }
+        else if($costeTotal > 1000){
             echo "<script>alert('Exceso de presupuesto'); window.location.href='../../comprarProductos.php';</script>";
         } else {
             $todoCorrecto = true;
